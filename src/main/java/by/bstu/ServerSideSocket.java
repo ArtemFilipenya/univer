@@ -2,38 +2,56 @@ package by.bstu;
 
 import java.net.*;
 import java.io.*;
-import java.util.Arrays;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ServerSideSocket {
     private final Scanner scanner = new Scanner(System.in);
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm:ss");;
     private final File serverDir = new File("/Users/fas/Desktop/MacBook/Git/univer/src/recourses");
+
     public void run() {
         try {
             int serverPort = 4020;
-            boolean isGoodInfoFromClient = false;
             ServerSocket serverSocket = new ServerSocket(serverPort);
+            File file;
             serverSocket.setSoTimeout(10000);
             while(true) {
-                System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
+                System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Waiting for client on port " +
+                        serverSocket.getLocalPort() + "...");
                 Socket server = serverSocket.accept();
-                System.out.println("Just connected to " + server.getRemoteSocketAddress());
+                System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Just connected to " +
+                        server.getRemoteSocketAddress());
                 PrintWriter toClient =
                         new PrintWriter(server.getOutputStream(),true);
                 BufferedReader fromClient =
                         new BufferedReader(
                                 new InputStreamReader(server.getInputStream()));
-                while (!isGoodInfoFromClient) {
+                while (true) {
                     String line = fromClient.readLine();
                     if (!validateFile(line)) {
-                        toClient.println("Error.Enter New file:");
+                        toClient.println(LocalDateTime.now().format(formatter) + "[Server]:Validation error. Enter New file:");
                         continue;
                     }
+                    //toClient.println("OK");
                     String[] arr = line.split(" ");
-                    if (findFile(serverDir, arr[1]) == null) {
-                        toClient.println("Can't find the file. Enter New file:");
+                    file = findFile(serverDir, arr[1]);
+                    if (file == null) {
+                        toClient.println("BAD");
+                        toClient.println(LocalDateTime.now().format(formatter) + "[Server]:Can't find the file. Server closed.");
+                        toClient.close();
+                        fromClient.close();
+                        serverSocket.close();
+                        return;
                     }
-                    isGoodInfoFromClient = true;
+                    toClient.println("OK");
+                    Path filePath = Path.of(file.getPath());
+                    String gg = Files.readAllLines(filePath).toString();
+                    toClient.println(gg);
+                    break;
                 }
             }
         } catch(IOException ex) {
