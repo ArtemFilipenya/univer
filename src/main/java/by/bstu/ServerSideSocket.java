@@ -6,10 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class ServerSideSocket {
-    private final Scanner scanner = new Scanner(System.in);
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm:ss");;
     private final File serverDir = new File("/Users/fas/Desktop/MacBook/Git/univer/src/recourses");
 
@@ -18,12 +16,12 @@ public class ServerSideSocket {
             int serverPort = 4020;
             ServerSocket serverSocket = new ServerSocket(serverPort);
             File file;
-            serverSocket.setSoTimeout(10000);
+            //serverSocket.setSoTimeout(100000);
             while(true) {
                 System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Waiting for client on port " +
                         serverSocket.getLocalPort() + "...");
                 Socket server = serverSocket.accept();
-                System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Just connected to " +
+                System.out.println(LocalDateTime.now().format(formatter) + "[Server]:User connected to " +
                         server.getRemoteSocketAddress());
                 PrintWriter toClient =
                         new PrintWriter(server.getOutputStream(),true);
@@ -32,25 +30,33 @@ public class ServerSideSocket {
                                 new InputStreamReader(server.getInputStream()));
                 while (true) {
                     String line = fromClient.readLine();
+                    System.out.println(LocalDateTime.now().format(formatter) + "[Server]:User enter line:" + line);
                     if (!validateFile(line)) {
                         toClient.println(LocalDateTime.now().format(formatter) + "[Server]:Validation error. Enter New file:");
                         continue;
                     }
-                    //toClient.println("OK");
-                    String[] arr = line.split(" ");
-                    file = findFile(serverDir, arr[1]);
+                    toClient.println("Validate OK");
+                    String strFromClient = fromClient.readLine();
+                    if (strFromClient.equals("OK")) {
+                        String[] arr = line.split(" ");
+                        file = findFile(serverDir, arr[1]);
                     if (file == null) {
-                        toClient.println("BAD");
-                        toClient.println(LocalDateTime.now().format(formatter) + "[Server]:Can't find the file. Server closed.");
+                        System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Can't find the file. Server closed.");
+                        toClient.println("Server closed.");
                         toClient.close();
                         fromClient.close();
                         serverSocket.close();
                         return;
                     }
-                    toClient.println("OK");
-                    Path filePath = Path.of(file.getPath());
-                    String gg = Files.readAllLines(filePath).toString();
-                    toClient.println(gg);
+                        Path filePath = Path.of(file.getPath());
+                        String gg = Files.readAllLines(filePath).toString();
+                        System.out.println(LocalDateTime.now().format(formatter) + "[Server]: server closed.");
+                        toClient.println(gg);
+                        toClient.close();
+                        fromClient.close();
+                        serverSocket.close();
+                        return;
+                    }
                     break;
                 }
             }
