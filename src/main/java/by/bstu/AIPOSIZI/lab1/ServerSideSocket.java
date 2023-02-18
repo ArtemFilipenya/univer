@@ -1,4 +1,4 @@
-package by.bstu;
+package by.bstu.AIPOSIZI.lab1;
 
 import java.net.*;
 import java.io.*;
@@ -13,13 +13,14 @@ public class ServerSideSocket {
 
     public void run() {
         try {
-            int serverPort = 4020;
+            int serverPort = 8000;
             ServerSocket serverSocket = new ServerSocket(serverPort);
             File file;
             //serverSocket.setSoTimeout(100000);
             while(true) {
                 System.out.println(LocalDateTime.now().format(formatter) + "[Server]:Waiting for client on port " +
                         serverSocket.getLocalPort() + "...");
+
                 Socket server = serverSocket.accept();
                 System.out.println(LocalDateTime.now().format(formatter) + "[Server]:User connected to " +
                         server.getRemoteSocketAddress());

@@ -1,9 +1,7 @@
-package by.bstu;
+package by.bstu.AIPOSIZI.lab1;
 
 import java.io.*;
 import java.net.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ClientSocket {
@@ -13,9 +11,10 @@ public class ClientSocket {
         try {
             int serverPort = 4020;
             boolean isGoodInformationFromClient = false;
-            InetAddress host = InetAddress.getByName("localhost");
+            //InetAddress host = InetAddress.getByName("");
+            //InetAddress host = InetAddress.getByAddress("");
 
-            Socket socket = new Socket(host,serverPort);
+            Socket socket = new Socket("0.0.0.0", 8000);
             PrintWriter toServer =
                     new PrintWriter(socket.getOutputStream(),true);
             BufferedReader fromServer =
