@@ -1,1 +1,7 @@
-Some interesting text
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.
+Now that our server is up and running, its time to connect to it and verify its working. To connect to a simple server like this a program like telnet is needed.

@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7185f6e5-08cf-42ab-afc2-8ea6b55231f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bstu/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bstu/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/bstu/ServerSideSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/bstu/ServerSideSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recourses/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/recourses/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +39,13 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ServerSideSocket">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="by.bstu.Ulya.Client" />
+  <component name="RunManager" selected="Application.udp_client">
+    <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.bstu.AIPOSIZI.lab2.EchoClient" />
       <module name="univer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.bstu.Ulya.*" />
+          <option name="PATTERN" value="by.bstu.AIPOSIZI.lab2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -54,25 +53,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientSocket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="by.bstu.ClientSocket" />
+    <configuration name="EchoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.bstu.AIPOSIZI.lab2.EchoServer" />
       <module name="univer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.bstu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="by.bstu.Ulya.Server" />
-      <module name="univer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="by.bstu.Ulya.*" />
+          <option name="PATTERN" value="by.bstu.AIPOSIZI.lab2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,11 +67,11 @@
       </method>
     </configuration>
     <configuration name="ServerSideSocket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="by.bstu.ServerSideSocket" />
+      <option name="MAIN_CLASS_NAME" value="by.bstu.AIPOSIZI.lab1.ServerSideSocket" />
       <module name="univer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.bstu.*" />
+          <option name="PATTERN" value="by.bstu.AIPOSIZI.lab1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,33 +86,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="udp_client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.bstu.AIPOSIZI.lab2.udp_client" />
       <module name="univer" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.bstu.AIPOSIZI.lab2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="udp_server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.bstu.AIPOSIZI.lab2.udp_server" />
+      <module name="univer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.bstu.AIPOSIZI.lab2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.client2" />
-      <item itemvalue="Application.Client" />
-      <item itemvalue="Application.ClientSocket" />
-      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.EchoClient" />
+      <item itemvalue="Application.EchoServer" />
+      <item itemvalue="Application.udp_client" />
+      <item itemvalue="Application.udp_server" />
       <item itemvalue="Application.ServerSideSocket" />
-      <item itemvalue="TestNG.test.givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.udp_client" />
+        <item itemvalue="Application.udp_server" />
+        <item itemvalue="Application.EchoClient" />
+        <item itemvalue="Application.EchoServer" />
         <item itemvalue="Application.ServerSideSocket" />
-        <item itemvalue="Application.ClientSocket" />
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="TestNG.test.givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect" />
       </list>
     </recent_temporary>
   </component>
